@@ -1,0 +1,27 @@
+version: '2'
+
+services:
+
+  nodejs:
+    container_name: backend
+    image: mrlnx/nodejs
+    volumes:
+     - ./app:/usr/src/app
+    working_dir: /usr/src/app 
+    command: bash -c "npm install && /usr/bin/nodejs /usr/src/app/index.js"
+    ports:
+     - "3000:3000"
+    links:
+     - rdbms
+     
+  rdbms:
+    container_name: mysql
+    image: mysql:latest
+    volumes:
+     - /var/lib/mysql
+    environment:
+     - MYSQL_ROOT_PASSWORD=ledelede
+     - MYSQL_DATABASE=locations
+    ports:
+     - "3306:3306"
+ 

@@ -1,0 +1,11 @@
+{
+  "name": "docker-nodejs",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Testing docker with NodeJS",
+  "author": "Marlon Lede <marlonlede@gmail.com>",
+  "dependencies": {
+    "express": "4.2.6"
+    "mysql": "2.13.1"
+  }
+}

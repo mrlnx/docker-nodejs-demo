@@ -1,0 +1,20 @@
+web:
+   image: mrlnx/nodejs
+   volumes:
+     - ./app:/usr/src/app
+   working_dir: /usr/src/app 
+   command: bash -c "cp -R /tmp/node_modules /usr/src/app && /usr/bin/nodejs index.js"
+   ports:
+     - "3000:3000"
+   environment:
+     MYSQL_DB_PASSWORD: ledelede
+   links:
+     - rdbms:mysql
+   depends_on:
+     - rdbms
+
+rdbms:
+   image: mariadb
+   container_name: rdbms
+   environment:
+     MYSQL_ROOT_PASSWORD: ledelede 
